@@ -10,6 +10,7 @@ terraform {
     workspaces {
       name = "tf-asa"
     }
+  }
 }
 
 provider "ciscoasa" {
