@@ -1,5 +1,12 @@
 name: "Terraform"
 
+env:
+  CISCOASA_API_URL: ${{ secrets.CISCOASA_API_URL }}
+  CISCOASA_USERNAME: ${{ secrets.CISCOASA_USERNAME }}
+  CISCOASA_PASSWORD: ${{ secrets.CISCOASA_PASSWORD }}
+  CISCOASA_SSLNOVERIFY: ${{ secrets.CISCOASA_SSLNOVERIFY }}
+
+
 on:
   push:
     branches:
