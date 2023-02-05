@@ -29,22 +29,22 @@ resource "ciscoasa_network_object" "ipv4_subnet" {
   value = "192.168.10.128/25"
 }
 
-resource "ciscoasa_acl" "terraform_acl_1" {
-  name = "terraform_acl_1"
+resource "ciscoasa_access_in_rules" "foo" {
+  interface = "inside"
   rule {
-    source              = "10.0.0.1/32"
-    destination         = "192.168.0.0/24"
+    source              = "192.168.10.5/32"
+    destination         = "192.168.15.0/25"
     destination_service = "tcp/443"
   }
   rule {
-    source              = "10.0.1.0/24"
+    source              = "192.168.10.0/24"
     source_service      = "udp"
-    destination         = "172.16.0.1/32"
+    destination         = "192.168.15.6/32"
     destination_service = "udp/53"
   }
   rule {
-    source              = "0.0.0.0/0"
-    destination         = "0.0.0.0/0"
+    source              = "192.168.10.0/23"
+    destination         = "192.168.12.0/23"
     destination_service = "icmp/0"
   }
 }
